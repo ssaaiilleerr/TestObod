@@ -1,7 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary     #importing selenium library
 Library     BuiltIn
-#Library     Random
 
 *** Variables ***
 ${Browser}  Chrome          #setting up browser to chrome

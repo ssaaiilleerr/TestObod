@@ -1,10 +1,12 @@
 *** Settings ***
-Resource  support/TestCasesOBOD.robot
+Resource  support/test.cases.login.obod.robot
+Resource  support/test.cases.registration.obod.robot
 
 
 Test Setup      Prepare test envirnment
 Test Teardown   Cleanup test environment
 *** Variables ***
+
 ${ValidLoginEmail}=  girukinbox@gmail.com           #User valid login email for test cases
 ${ValidLoginPassword}=  Test1234                    #User valid login password for test cases
 ${InValidLoginEmail}=  InValidEmail@gmail.com       #User invalid login email for test cases
@@ -14,7 +16,9 @@ ${InValidLoginPassword}=  InValidPass               #User invalid login password
 ${ValidRegisterPassword}=  Test1234@!               #The valid password to register a new user for the test cases
 ${ValidRegisterName}=  Firstname Lastname           #Valid name to register a new user for the test cases
 ${ValidRegisterTelephone}=  680000000               #The valid telephone to register a new user for the test cases
+
 *** Test Cases ***
+
 Obod login valid user                               #Correct email and correct password
     Login user  ${ValidLoginEmail}  ${ValidLoginPassword}
 
