@@ -43,4 +43,4 @@ removing items from the cart
     buy first place on shop
     go to cart page with product
     check on two position in cart
-#    delete first place in cart
+    delete first place in cart

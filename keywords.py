@@ -194,7 +194,9 @@ def go_to_shop_bicycle_parts_page():
                               'Велозапчасти, Запчасти на Велосипед')
 
 def go_to_shop_accessories_page():
+
     sl.click_element('css=li.mega-menu-mixed.main-menu-item-4 > a')
+    sl.wait_until_location_is_not('http://obod.com.ua/velomagazin-hmelnickiy.html')
     sl.location_should_be('http://obod.com.ua/aksessuary')
     sl.element_should_contain('css=#content > h1',
                               'Аксессуары для Велосипеда')
@@ -203,13 +205,9 @@ def buy_first_place_on_shop():
     sl.click_element('css=div:nth-child(1) > div > div.product-details > div.cart > a')
 
 def go_to_cart_page_with_product():
-    # sl.mouse_down('css=#cart')
-    # sl.execute_javascript('jQuery(\'div.checkout > a:nth-child(1)\').click();')
-    # sl.wait_until_location_contains('http://obod.com.ua/index.php?route=checkout/simplecheckout')
-    sl.go_to('http://obod.com.ua/index.php?route=checkout/simplecheckout')
-    sl.location_should_be('http://obod.com.ua/index.php?route=checkout/simplecheckout')
-    sl.element_should_contain('css=#content > h1',
-                              'Оформление заказа')
+    sl.wait_until_element_is_enabled('css=body > div.ui-pnotify', '7')
+    sl.click_element('css=body > div.ui-pnotify > div > div.ui-pnotify-text > div > a')
+
 
 def add_product_like_first():
     sl.click_element('css=td.quantity > img:nth-child(3)')
@@ -220,6 +218,6 @@ def check_on_two_position_in_cart():
     sl.element_should_be_visible('css=#simplecheckout_cart > table > tbody > tr:nth-child(2)')
 
 def delete_first_place_in_cart():
-    sl.click_image('css=#simplecheckout_cart > table > tbody > tr:nth-child(1) > td.remove > img')
+    sl.click_image('css=#simplecheckout_cart > table > tbody > tr > td.quantity > img:nth-child(1)')
     sl.element_should_be_visible('css=#simplecheckout_cart > table > tbody > tr:nth-child(1)')
-    sl.element_should_be_disabled('css=#simplecheckout_cart > table > tbody > tr:nth-child(2)')
+    sl.element_should_be_enabled('css=#simplecheckout_cart > table > tbody > tr:nth-child(2)')
